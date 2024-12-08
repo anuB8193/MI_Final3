@@ -1,0 +1,25 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+    <!-- Introduction section for the projects page -->
+    <section class="projects-intro">
+        <h2>Below is a list of projects I worked on during CSE 477:</h2>
+        <p>Click an image or hyperlink in the description to learn more.</p>
+    </section>
+
+    <!-- Project section with image and description -->
+    <section class="profile">
+        <!-- Left column for project image -->
+        <div class="photo-column">
+            <!-- The image links to the detailed project page -->
+            <a href="{{ url_for('piano') }}">
+                <img src="{{ url_for('static', filename='main/images/piano.jpeg') }}" alt="Piano Project" class="profile-photo" loading="lazy"> <!-- Project image with lazy loading -->
+            </a>
+        </div>
+        <!-- Right column for project description -->
+        <div class="text-column">
+            <h1>JavaScript Piano</h1>
+            <p>As part of my first Homework assignment in CSE 477, I developed an interactive piano built in pure HTML, CSS, and JavaScript. This tool (in addition to my webpage) highlights my ability to build beautiful and mobile-friendly front-end applications. <a href="{{ url_for('piano') }}">Click here to see, and play!</a></p>
+        </div>
+    </section>
+{% endblock %}

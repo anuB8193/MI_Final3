@@ -1,0 +1,147 @@
+/* Variables for spacing, colors, and sizes */
+:root {
+    --main-width: 80vw; /* Main content width relative to the viewport */
+    --main-margin: 2.5em auto; /* Top and bottom margin for main content */
+    --padding-small: 1.25em; /* Padding for smaller elements */
+    --padding-large: 2em; /* Padding for larger elements */
+    --profile-min-height: 50vh; /* Minimum height for profile section */
+    --border-color: #ccc; /* Border color */
+    --font-size-heading: 1.6em; /* Font size for headings */
+    --font-size-paragraph: 1em; /* Font size for paragraphs */
+    --font-size-fun-fact-heading: 1.8em; /* Font size for fun fact heading */
+    --font-size-fun-fact-paragraph: 1.2em; /* Font size for fun fact paragraph */
+    --text-color-main: #666; /* Main text color */
+    --border-solid: 0.0625em solid var(--border-color); 
+}
+
+
+/* Main content area */
+main {
+    width: var(--main-width); /* Use variable for main width */
+    margin: var(--main-margin); /* Add margin at the top and bottom */
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--padding-small); /* Add some padding at the top */
+}
+
+/* Profile container styling (common to both pages) */
+.profile {
+    display: flex;
+    width: 100%; /* Full width of the main section */
+    min-height: var(--profile-min-height); /* Set a minimum height using variable */
+    margin: var(--padding-small) 0; /* Add margin for space above and below */
+    padding-top: var(--padding-small); /* Ensure there's enough space at the top */
+    overflow: hidden; /* Prevent overflow of content */
+    box-sizing: border-box; /* Include padding and borders in the element's total size */
+}
+
+/* Left column for the photo */
+.photo-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100%; /* Ensure the image doesn't exceed the container height */
+    padding: var(--padding-small); /* Padding around image */
+}
+
+/* Profile photo styling */
+.profile-photo {
+    width: 100%; /* Full width */
+    height: auto; /* Allow the image to adjust based on content */
+    max-width: 25em; /* Set a maximum width using relative unit */
+    border: 0.125em solid #000000; /* Border around the image using hex color */
+    object-fit: cover; /* Ensure the image fills the container without distortion */
+}
+
+/* Right column for the text */
+.text-column {
+    flex: 1;
+    padding: var(--padding-large);
+    overflow-y: scroll; /* Enable scrolling for the text if necessary */
+    box-sizing: border-box;
+    max-height: 100%; /* Ensure the text column matches the photo column height */
+}
+
+/* Title styling */
+.text-column h1 {
+    font-size: var(--font-size-heading);
+    margin-bottom: 0.9375em; /* Margin in relative units */
+}
+
+/* Paragraph styling */
+.text-column p {
+    font-size: var(--font-size-paragraph);
+    line-height: 1.4;
+    text-align: justify;
+    margin-bottom: 0.9375em; /* Margin in relative units */
+}
+
+/* Fun Fact Section Styling */
+.fun-fact {
+    margin-top: 2.5em;
+    padding: var(--padding-large);
+    border-top: var(--border-solid); /* Use border variable */
+    text-align: center;
+}
+
+.fun-fact h2 {
+    font-size: var(--font-size-fun-fact-heading);
+    font-weight: bold;
+    font-style: italic;
+}
+
+.fun-fact p {
+    font-size: var(--font-size-fun-fact-paragraph);
+    margin-top: 0.9375em;
+}
+
+/* Responsive Layout for Small Screens */
+@media (max-width: 40.625em) { 
+    .profile {
+        flex-direction: column;
+        max-height: none; /* Let the content determine the height */
+    }
+
+    .photo-column, .text-column {
+        width: 100%; /* Full width for single column */
+        height: auto; /* Let the content determine the height */
+    }
+
+    .profile-photo {
+        width: 100%;
+        height: auto;
+        object-fit: contain; /* Ensure the image maintains aspect ratio */
+    }
+
+    main {
+        width: var(--main-width);
+    }
+
+    .text-column {
+        overflow: visible; /* Ensure text is fully visible */
+    }
+}
+
+/* Additional Projects Page Styles */
+.projects-page .projects-intro {
+    margin-top: 2.5em;
+    padding: var(--padding-large);
+    border-bottom: var(--border-solid); /* Gray border to separate it */
+    text-align: center;
+    margin-bottom: 1.25em;
+}
+
+.projects-page .projects-intro h2 {
+    font-size: 2.5em;
+    margin-bottom: 0.625em;
+    color: #000; /* Strong black color for the title */
+}
+
+.projects-page .projects-intro p {
+    font-size: 1.4em;
+    color: var(--text-color-main); /* Use the variable for text color */
+    font-style: italic;
+    margin-top: 0.625em;
+}
+

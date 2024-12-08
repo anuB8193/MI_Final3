@@ -1,0 +1,268 @@
+/* Variables for colors, spacing, and sizes */
+:root {
+    --background-color-light: #f4f4f4;
+    --text-color-dark: #333;
+    --text-color-medium: #555;
+    --text-color-light: #777;
+    --border-color: #ccc;
+    --black-key-color: #000;
+    --black-key-border-color: #222;
+    --white-key-bg-color: #eee;
+    --white-key-border-color: #000;
+    --piano-bg-color: #333;
+    --font-family-main: Arial, sans-serif;
+    --font-family-secondary: 'Georgia', serif;
+    --font-size-header: 2.5em;
+    --font-size-poem: 1.5em;
+    --piano-width: 31.25em;
+    --piano-height: 25em;
+    --piano-border-radius: 1.875em 1.875em 0 0;
+    --padding-small: 1.25em;
+    --margin-small: 1.25em;
+    --margin-large: 2.5em;
+    --black-key-width: 6%;
+    --black-key-height: 9.375em;
+    --white-key-width: 9%;
+    --white-key-height: 18.75em;
+    --font-size-key-label: 1.5rem;
+}
+
+/* General styling */
+body {
+    font-family: var(--font-family-main);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color-light);
+    text-align: center;
+}
+
+/* Header styling */
+header h1 {
+    font-size: var(--font-size-header);
+    margin-top: var(--margin-small);
+    color: var(--text-color-dark);
+}
+
+/* Styling for the poem text */
+.poem {
+    font-size: var(--font-size-poem);
+    color: var(--text-color-medium);
+    margin: var(--margin-large) var(--margin-small); 
+    line-height: 1.8;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Divider (line) between poem and the image */
+.divider {
+    width: 80%;
+    margin: var(--margin-small) auto;
+    border: 0.0625em solid var(--border-color); 
+}
+
+
+/* Piano container styling */
+.piano-container {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--margin-small);
+}
+
+.piano-body {
+    width: var(--piano-width);
+    height: var(--piano-height);
+    background-color: var(--piano-bg-color);
+    border-radius: var(--piano-border-radius);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: opacity 3s ease;
+}
+
+/* Fade-out class for the piano */
+.piano-body.fade-out {
+    opacity: 0;
+    transition: opacity 3s ease;
+}
+
+/* Piano title */
+.piano-title {
+    font-family: var(--font-family-secondary);
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+    padding-top: var(--padding-small);
+}
+
+/* White keys container */
+.white-keys {
+    display: flex;
+    justify-content: space-between;
+    width: 99%;
+    position: absolute;
+    bottom: 0;
+    padding: 0 var(--padding-small);
+}
+
+/* Individual white key styling */
+.white-key {
+    width: var(--white-key-width);
+    height: var(--white-key-height);
+    background-color: var(--white-key-bg-color);
+    border: 0.0625em solid var(--white-key-border-color); 
+    box-shadow: 0.0625em 0.125em 0.3125em rgba(0, 0, 0, 0.3); 
+    position: relative;
+    z-index: 1;
+    border-radius: 0 0 0.625em 0.625em; 
+}
+
+
+/* Black keys container */
+.black-keys {
+    position: absolute;
+    top: 6.125em;
+    width: 104%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+/* Individual black key styling */
+.black-key {
+    width: var(--black-key-width);
+    height: var(--black-key-height);
+    background-color: var(--black-key-color);
+    border: 0.0625em solid var(--black-key-border-color); 
+    box-shadow: 0.0625em 0.125em 0.3125em rgba(0, 0, 0, 0.3); 
+    position: relative;
+    z-index: 2;
+    border-radius: 0 0 0.375em 0.375em; 
+}
+
+/* Manually adjusting the spacing of all 7 black keys using nth-child */
+.black-key:nth-child(1) {
+    margin-left: 9%;
+}
+
+.black-key:nth-child(2) {
+    margin-left: 3%;
+}
+
+.black-key:nth-child(3) {
+    margin-left: 12%;
+}
+
+.black-key:nth-child(4) {
+    margin-left: 3%;
+}
+
+.black-key:nth-child(5) {
+    margin-left: 3%;
+}
+
+.black-key:nth-child(6) {
+    margin-left: 12%;
+}
+
+.black-key:nth-child(7) {
+    margin-left: 3%;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 40.625em) { 
+    .piano-body {
+        width: 90%;
+        height: auto;
+    }
+
+    .white-key {
+        height: 7.5em;
+    }
+
+    .black-key {
+        height: 5em;
+    }
+
+    .piano-title {
+        font-size: 1.5em;
+        margin-top: var(--padding-small);
+    }
+}
+
+/* Style for the keyboard key label */
+.white-key, .black-key {
+    position: relative;
+}
+
+/* Create the pseudo-element for both white and black keys */
+.white-key::after, .black-key::after {
+    content: attr(data-key);  
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--font-size-key-label);
+    color: transparent; 
+    transition: color 0.3s ease;
+}
+
+/* When the 'show-key' class is added, reveal the keyboard characters */
+.white-key.show-key::after {
+    color: black;
+}
+
+.black-key.show-key::after {
+    color: white;
+}
+
+/* Style for when a key is pressed */
+.key-pressed {
+    transform: translateY(0.25em); 
+    box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.3), inset 0 0.25em 0.375em rgba(0, 0, 0, 0.2);
+    background-color: #ddd;
+}
+
+/* Great Old One styling */
+.great-old-one-wrapper {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    max-width: var(--piano-width);
+    margin: auto;
+}
+
+.great-old-one {
+    width: var(--piano-width); 
+    height: var(--piano-height);
+    object-fit: cover;
+    border-radius: var(--piano-border-radius);
+}
+
+.awoken-text {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5em;
+    text-shadow: 0.125em 0.125em 0.75em black;
+    letter-spacing: 0.1em;
+    font-family: var(--font-family-secondary);
+}
+
+/* Responsive layout for the Great Old One image */
+@media (max-width: 40.625em) {
+    .great-old-one {
+        width: 90%;
+        height: auto;
+    }
+
+    .awoken-text {
+        font-size: 2em;
+    }
+}
+
+/* Ensure the great-old-one-container becomes visible after the piano fades out */
+.piano-body.fade-out + .great-old-one-container {
+    display: flex;
+}

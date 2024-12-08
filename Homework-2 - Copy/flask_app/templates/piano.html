@@ -1,0 +1,58 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+  <!-- Piano-specific CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='piano/css/piano.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+    <!-- Poem section above the piano -->
+    <div class="poem">
+        <p>
+            "Behold piano great and old,<br>
+            its master slumbers in far off cold,<br>
+            If you wish to see anew,<br>
+            call out to it - we see you."
+        </p>
+        <hr class="divider"> <!-- Horizontal divider -->
+    </div>
+
+    <!-- Piano container with keys -->
+    <div class="piano-container">
+        <div class="piano-body">
+            <h2 class="piano-title">The Great Old One</h2>
+
+            <!-- White Keys container -->
+            <div class="white-keys">
+                <!-- 10 white keys with data-key attributes for keyboard mapping -->
+                <div class="white-key" id="key1" data-key="A"></div>
+                <div class="white-key" id="key2" data-key="S"></div>
+                <div class="white-key" id="key3" data-key="D"></div>
+                <div class="white-key" id="key4" data-key="F"></div>
+                <div class="white-key" id="key5" data-key="G"></div>
+                <div class="white-key" id="key6" data-key="H"></div>
+                <div class="white-key" id="key7" data-key="J"></div>
+                <div class="white-key" id="key8" data-key="K"></div>
+                <div class="white-key" id="key9" data-key="L"></div>
+                <div class="white-key" id="key10" data-key=";"></div>
+            </div>
+
+            <!-- Black Keys container -->
+            <div class="black-keys">
+                <!-- 7 black keys with data-key attributes for keyboard mapping -->
+                <div class="black-key" id="bkey1" data-key="W"></div>
+                <div class="black-key" id="bkey2" data-key="E"></div>
+                <div class="black-key" id="bkey3" data-key="T"></div>
+                <div class="black-key" id="bkey4" data-key="Y"></div>
+                <div class="black-key" id="bkey5" data-key="U"></div>
+                <div class="black-key" id="bkey6" data-key="O"></div>
+                <div class="black-key" id="bkey7" data-key="P"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extrajs %}
+  <!-- Piano-specific JavaScript -->
+  <script src="{{ url_for('static', filename='piano/js/piano.js') }}" defer></script>
+{% endblock %}

@@ -1,0 +1,132 @@
+/* Variables for colors, spacing, and sizes */
+:root {
+    --nav-bg-color: #333; /* Navbar background color */
+    --nav-link-hover-bg-color: #555; /* Navbar link hover background color */
+    --nav-text-color: white; /* Navbar text color */
+    --nav-padding-vertical: 0.625em; /* Vertical padding for the navbar */
+    --nav-padding-horizontal: 1.25em; /* Horizontal padding for the navbar */
+    --nav-link-gap: 1.25em; /* Gap between navbar links */
+    --nav-link-padding: 0.625em 0.9375em; /* Padding for the links*/
+    --nav-font-size: 1.125em; /* Font size for nav links */
+    --nav-title-font-size: 1.25em; /* Font size for nav title */
+    --nav-title-font-weight: bold; /* Font weight for nav title */
+    --menu-icon-size: 1.875em; /* Menu icon size */
+    --linkedin-icon-size: 1.5em; /* LinkedIn icon size */
+}
+
+/* Basic nav styles */
+nav {
+    background-color: var(--nav-bg-color);
+    padding: var(--nav-padding-vertical) var(--nav-padding-horizontal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+/* Nav title styling */
+.nav-title {
+    color: var(--nav-text-color);
+    font-size: var(--nav-title-font-size);
+    font-weight: var(--nav-title-font-weight);
+    font-family: Arial, sans-serif; /* Ensure consistent font-family */
+}
+
+/* Flexbox layout for the menu items */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--nav-link-gap); /* Use variable for gap between links */
+}
+
+/* Styling for navigation links */
+.nav-links li a {
+    color: var(--nav-text-color);
+    text-decoration: none;
+    font-size: var(--nav-font-size);
+    font-family: Arial, sans-serif; /* Ensure consistent font-family */
+    padding: var(--nav-link-padding); /* Use variable for padding */
+    display: inline-block;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    opacity: 1;
+}
+
+.nav-links li a:hover {
+    background-color: var(--nav-link-hover-bg-color);
+    border-radius: 0.3125em; 
+    opacity: 0.6;
+}
+
+/* LinkedIn icon styling */
+.social-icon {
+    width: var(--linkedin-icon-size); /* Use variable for LinkedIn icon size */
+    height: var(--linkedin-icon-size); /* Keep it square */
+    vertical-align: middle;
+}
+
+/* LinkedIn text styling (hidden by default) */
+.linkedin-text {
+    display: none;
+}
+
+/* Menu button for small screens */
+.menu-toggle {
+    display: none;
+    width: var(--menu-icon-size); /* Use variable for menu icon size */
+    height: auto;
+    cursor: pointer;
+}
+
+/* Adjustments for small screens */
+@media (max-width: 40.625em) { 
+    /* Show the menu button */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hide nav links initially */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: var(--nav-bg-color);
+        position: fixed;
+        top: var(--nav-padding-horizontal); /* Lower the dropdown position below the nav bar */
+        left: 0;
+        width: 100vw; /* Full width of the screen */
+        height: calc(100vh - var(--nav-padding-horizontal)); /* Full screen height minus the navbar */
+        z-index: 9999;
+        padding: var(--nav-padding-horizontal);
+        box-sizing: border-box;
+    }
+
+    /* Show nav links when menu is open */
+    .nav-open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Align the items at the start (left side) */
+        padding-top: var(--nav-padding-horizontal);
+    }
+
+    /* LinkedIn icon and text */
+    .social-icon {
+        display: none;
+    }
+
+    .linkedin-text {
+        display: inline;
+    }
+
+    .nav-links li {
+        padding: var(--nav-padding-horizontal);
+        width: 100%; /* Make the links take full width */
+        text-align: left; /* Align text to the left */
+        border-bottom: 0.0625em solid #444; 
+    }
+
+    .nav-links li a {
+        font-size: 1.25em; /* Increase font size for mobile view */
+        width: 100%; /* Make sure each link takes full width */
+    }
+}

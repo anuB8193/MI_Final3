@@ -1,0 +1,17 @@
+{% extends 'shared/layout.html' %}
+
+{% block title %}Feedback Received{% endblock %}
+
+{% block maincontent %}
+    <header>
+        <h1>Thank you for your feedback - here's what others had to say:</h1>
+    </header>
+    
+    <main>
+        <ul>
+            {% for entry in feedback_entries %}
+                <li><strong>{{ entry.name }}</strong> said: {{ entry.comment }}</li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock %}

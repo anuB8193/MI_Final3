@@ -1,0 +1,20 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<div class="profile">
+   <div class="photo-column">
+      <img src="{{ url_for('static', filename='main/images/pfp.jpg') }}" alt="Your Photo" class="profile-photo" loading="lazy">
+   </div>
+   <div class="text-column">
+      <h1>Anushka Basani</h1>
+      <p>Anushka Basani is a senior at Michigan State University, majoring in Computer Science, with a passion for solving real-world problems through practical and efficient tech solutions. During her Software Engineering Fellowship at Headstarter AI, Anushka developed AI apps and APIs using Next.js, OpenAI, Pinecone, and Stripe, achieving 98% accuracy across projects used by over 1,000 users. She also collaborates with and mentors fellow engineers, applying industry best practices like Agile methodologies and CI/CD, coached by professionals from Amazon, Bloomberg, and Capital One.</p>
+      <p>Anushka’s internship experience spans across various companies, including SafeSpace and OSI Digital. At SafeSpace, she worked on Python and cloud applications, further honing her skills in backend development and automation. During her time at OSI Digital, Anushka automated repetitive tasks using Python, reducing manual workload by 50% and improving overall team productivity by 25%. She also enhanced project quality by conducting in-depth research on databases, SQL, and Python, contributing valuable insights for robust software solutions.</p>
+      <p>Anushka’s diverse experience in software engineering, full stack development, and leadership positions her as a strong candidate for software engineer, full stack engineer, or frontend developer roles. With expertise in Python, SQL, C++, React, and backend technologies, she is eager to contribute to innovative projects and make a meaningful impact in the tech industry.</p>
+   </div>
+</div>
+
+<div class="fun-fact">
+   <h2>A fun fact about me:</h2>
+   <p>{{ fun_fact }}</p> <!-- Dynamic fun fact -->
+</div>
+{% endblock %}

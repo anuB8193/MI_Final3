@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333333; /* Dark gray */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+}
+
+header {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.institution {
+    border-top: 0.0625rem solid #dddddd; /* Light gray */
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.institution-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; /* Aligns items properly */
+}
+
+.institution-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.location-dates {
+    text-align: right; /* Ensures text aligns right */
+    font-size: 0.9rem;
+    color: #666666; /* Medium gray */
+    margin: 0; /* Remove any margin on the location-dates container */
+}
+
+.location, .dates {
+    margin: 0; /* Remove margin for both location and dates */
+    padding: 0; /* Ensure no padding is applied */
+    line-height: 1; /* Set line-height to 1 to minimize space between lines */
+}
+
+.position {
+    margin-left: 2%; /* Relative unit */
+}
+
+.position-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.position-dates {
+    font-size: 0.85rem;
+    color: #666666; /* Medium gray */
+    margin-top: 0; /* Remove any top margin to reduce space */
+    text-align: right; /* Align dates to the right */
+}
+
+.responsibilities {
+    margin-bottom: 0.5rem;
+}
+
+.experience {
+    margin-left: 4%; /* Relative unit */
+    margin-bottom: 1rem;
+}
+
+.experience-title {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.experience-description {
+    margin: 0.5rem 0;
+}
+
+.skills {
+    font-size: 0.9rem; /* Relative unit */
+    color: #666666; /* Medium gray */
+}

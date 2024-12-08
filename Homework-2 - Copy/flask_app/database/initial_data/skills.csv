@@ -1,0 +1,9 @@
+skill_id,experience_id,name,skill_level
+1,1,"HTML",8
+2,1,"Java",8
+3,1,"OpenAI",9
+4,1,"React",8
+5,2,"Next.js",7
+6,2,"Java",8
+7,2,"HTML",8
+8,2,"OpenAI",9

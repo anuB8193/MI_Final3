@@ -1,0 +1,47 @@
+/* Variables for colors and padding */
+:root {
+    --footer-bg-color: #333; /* Footer background color */
+    --footer-text-color: white; /* Footer text color */
+    --footer-padding: 1.25em; /* Footer padding */
+    --footer-font-size: 1em; /* Default font size for footer */
+    --footer-font-family: Arial, sans-serif; /* Ensure font consistency */
+}
+
+/* Ensure full height for the html and body */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content should grow to fill the remaining space */
+main {
+    flex: 1;
+}
+
+/* Footer styling */
+.footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    padding: var(--footer-padding);
+    text-align: center;
+    margin: 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: var(--footer-font-size); /* Set font size using variable */
+    font-family: var(--footer-font-family); /* Ensure font-family consistency */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 40.625em) { 
+    .footer {
+        padding: 0.9375em; /* Adjust padding for smaller screens  */
+        font-size: 0.875em; /* Slightly smaller font size for smaller screens */
+    }
+}
