@@ -22,37 +22,35 @@
 </head>
 
 <body>
-  <article>
-    <!-- Header with banner image -->
-    <header>
-      <img src="{{ url_for('static', filename='main/images/banner.jpg') }}" alt="Banner Image" id="banner" loading="lazy">
-    </header>
+  <!-- Header -->
+  <header>
+    <img src="{{ url_for('static', filename='main/images/banner.jpg') }}" alt="Banner Image" id="banner" loading="lazy">
+  </header>
 
-    <!-- Navigation bar with links to pages -->
-    <nav>
-      <div class="nav-title">CSE 477 - Homework 2</div>
-      <ul class="nav-links">
-        <li><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
-        <li><a href="{{ url_for('resume') }}" class="nav-link">Resume</a></li>
-        <li><a href="{{ url_for('projects') }}" class="nav-link">Projects</a></li>
-        <li>
-          <a href="https://www.linkedin.com/in/anushka-basani-757518226/" class="nav-link">
-            <img src="{{ url_for('static', filename='main/images/social-linkedin.png') }}" alt="LinkedIn" class="social-icon" loading="lazy">
-          </a>
-        </li>
-      </ul>
-    </nav>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-title">CSE 477 - Homework 2</div>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
+      <li><a href="{{ url_for('resume') }}" class="nav-link">Resume</a></li>
+      <li><a href="{{ url_for('projects') }}" class="nav-link">Projects</a></li>
+      <li>
+        <a href="https://www.linkedin.com/in/anushka-basani-757518226/" class="nav-link">
+          <img src="{{ url_for('static', filename='main/images/social-linkedin.png') }}" alt="LinkedIn" class="social-icon" loading="lazy">
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-    <!-- Main content area -->
-    <main>
-      {% block maincontent %}{% endblock %}
-    </main>
+  <!-- Main content area -->
+  <main>
+    {% block maincontent %}{% endblock %}
+  </main>
 
-    <!-- Footer section -->
-    <footer>
-      <p>&copy; 2024 Anushka Basani</p>
-    </footer>
-  </article>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Anushka Basani</p>
+  </footer>
 
   <!-- Feedback Toggle Button -->
   <button id="feedback-toggle" class="feedback-button" onclick="toggleFeedbackForm()">Feedback</button>
@@ -72,6 +70,5 @@
       <input type="submit" value="Submit">
     </form>
   </div>
-
 </body>
 </html>
